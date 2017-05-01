@@ -4,7 +4,9 @@
   "description": "A test of gulp.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp",
+    "clean" : "gulp clean"
   },
   "keywords": [
     "test"
