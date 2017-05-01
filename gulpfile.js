@@ -2,17 +2,38 @@
 
 var gulp = require('gulp');
 var clean = require('gulp-clean');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var condense = require('gulp-css-condense');
 
-gulp.task('clean', function(){
-    gulp.src('dist', {read:false})
+var scriptSources = [
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.js',
+    'src/js/*.js'
+];
+
+var cssSources = [
+    'node_modules/bootstrap/dist/css/bootstrap.css',
+    'src/css/*.css'
+];
+
+gulp.task('clean', function () {
+    gulp.src('dist')
         .pipe(clean());
 });
 
-gulp.task('copy', function(){
-    return gulp.src('src/*')
-        .pipe(gulp.dest('dist'));
+gulp.task('js', function () {
+    gulp.src(scriptSources)
+        .pipe(concat('site.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('build', ['copy']);
+gulp.task('css', function () {
+    gulp.src(cssSources)
+        .pipe(concat('style.css'))
+        .pipe(condense())
+        .pipe(gulp.dest('dist/css'));
+});
 
-gulp.task('default', ['build']);
+gulp.task('default', ['js', 'css']);

@@ -13,7 +13,10 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2"
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-css-condense": "^1.1.2",
+    "gulp-uglify": "^2.1.2"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
