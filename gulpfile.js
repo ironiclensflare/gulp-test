@@ -31,7 +31,7 @@ gulp.task('js', function () {
 
 gulp.task('css', function () {
     gulp.src(cssSources)
-        .pipe(concat('style.css'))
+        .pipe(concat('site.css'))
         .pipe(condense())
         .pipe(gulp.dest('dist/css'));
 });
