@@ -36,4 +36,9 @@ gulp.task('css', function () {
         .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('default', ['js', 'css']);
+gulp.task('html', function(){
+    gulp.src('src/**/*.html')
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', ['js', 'css', 'html']);
